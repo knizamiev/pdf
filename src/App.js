@@ -1,25 +1,72 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { AgGridColumn, AgGridReact } from "ag-grid-react";
+import "ag-grid-community/dist/styles/ag-grid.css";
+import "ag-grid-community/dist/styles/ag-theme-alpine.css";
+import PDFExportPanel from "./pdfExport/PDFExportPanel";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => {
+    const [gridApi, setGridApi] = React.useState();
+    const [gridColumnApi, setGridColumnApi] = React.useState();
+
+    const gridOptions = {
+        columnDefs: [
+            {
+                headerName: 'Athlete Details',
+                children: [
+                    { field: 'athlete' },
+                    { field: 'age' },
+                    { field: 'country' },
+                ]
+            },
+            {
+                headerName: 'Sports Results',
+                children: [
+                    { field: 'sport' },
+                    { field: 'total', columnGroupShow: 'closed' },
+                    { field: 'gold', columnGroupShow: 'open' },
+                    { field: 'silver', columnGroupShow: 'open' },
+                    { field: 'bronze', columnGroupShow: 'open' },
+                ]
+            }
+        ],
+
+    }
+
+    return (
+        <div className="ag-theme-alpine" style={{ height: 400, width: 600 }}>
+            <button onClick={() => {}}>test</button>
+            <PDFExportPanel gridApi={gridApi} columnApi={gridColumnApi} />
+
+            {/*<AgGridReact*/}
+            {/*    onGridReady={(e) => {*/}
+            {/*        setGridApi(e.api);*/}
+            {/*        setGridColumnApi(e.columnApi);*/}
+            {/*    }}*/}
+            {/*    rowData={rowData}*/}
+            {/*>*/}
+            {/*    <AgGridColumn field="make"></AgGridColumn>*/}
+            {/*    <AgGridColumn field="model"></AgGridColumn>*/}
+            {/*    <AgGridColumn field="price"></AgGridColumn>*/}
+            {/*</AgGridReact>*/}
+            <AgGridReact  onGridReady={(e) => {
+                setGridApi(e.api);
+                setGridColumnApi(e.columnApi);
+            }}>
+                <AgGridColumn headerName="Athlete Details">
+                    <AgGridColumn field="athlete" />
+                    <AgGridColumn field="age" />
+                    <AgGridColumn field="country" />
+                </AgGridColumn>
+                <AgGridColumn headerName="Sports Results">
+                    <AgGridColumn field="sport" />
+                    <AgGridColumn field="total" columnGroupShow="closed" />
+                    <AgGridColumn field="gold" columnGroupShow="open" />
+                    <AgGridColumn field="silver" columnGroupShow="open" />
+                    <AgGridColumn field="bronze" columnGroupShow="open" />
+                </AgGridColumn>
+            </AgGridReact>
+        </div>
+    );
+};
 
 export default App;
