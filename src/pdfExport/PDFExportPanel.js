@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { createPicker } from './utils';
+import { createPicker } from "./utils";
 import printDoc from "./printDoc";
 
 const PDFExportPanel = props => {
@@ -94,7 +94,7 @@ const PDFExportPanel = props => {
                         }
                     }}
                 />
-                <label className="form-check-label" htmlFor="landscape">
+                <label className="form-check-label" for="landscape">
                     Landscape
                 </label>
                 <input
@@ -110,7 +110,7 @@ const PDFExportPanel = props => {
                         }
                     }}
                 />
-                <label className="form-check-label" htmlFor="portrait">
+                <label className="form-check-label" for="portrait">
                     Portrait
                 </label>
             </div>
@@ -124,7 +124,7 @@ const PDFExportPanel = props => {
                         SET_PDF_WITH_HEADER_IMAGE(event.target.checked);
                     }}
                 />
-                <label className="form-check-label" htmlFor="headerImage">
+                <label className="form-check-label" for="headerImage">
                     Header image (ag-Grid logo)
                 </label>
             </div>
@@ -138,7 +138,7 @@ const PDFExportPanel = props => {
                         SET_PDF_WITH_FOOTER_PAGE_COUNT(event.target.checked);
                     }}
                 />
-                <label className="form-check-label" htmlFor="footerPageCount">
+                <label className="form-check-label" for="footerPageCount">
                     Footer (page count)
                 </label>
             </div>
@@ -152,7 +152,7 @@ const PDFExportPanel = props => {
                         SET_PDF_HEADER_HEIGHT(parseInt(event.target.value));
                     }}
                 />
-                <label htmlFor="headerRowHeight">Header height</label>
+                <label for="headerRowHeight">Header height</label>
             </div>
             <div className="my-2">
                 <input
@@ -164,7 +164,7 @@ const PDFExportPanel = props => {
                         SET_PDF_ROW_HEIGHT(parseInt(event.target.value));
                     }}
                 />
-                <label htmlFor="cellRowHeight">Cell height</label>
+                <label for="cellRowHeight">Cell height</label>
             </div>
             <div className="color-picker-container">
                 <div className="color-picker-odd-row-bkg" />
@@ -184,7 +184,7 @@ const PDFExportPanel = props => {
                         SET_PDF_WITH_CELL_FORMATTING(event.target.checked);
                     }}
                 />
-                <label className="form-check-label" htmlFor="exportWithFormatting">
+                <label className="form-check-label" for="exportWithFormatting">
                     Cell styles
                 </label>
             </div>
@@ -198,7 +198,7 @@ const PDFExportPanel = props => {
                         SET_PDF_WITH_COLUMNS_AS_LINKS(event.target.checked);
                     }}
                 />
-                <label className="form-check-label" htmlFor="exportColumnsAsLink">
+                <label className="form-check-label" for="exportColumnsAsLink">
                     Hyperlinks
                 </label>
             </div>
@@ -212,7 +212,7 @@ const PDFExportPanel = props => {
                         SET_PDF_SELECTED_ROWS_ONLY(event.target.checked);
                     }}
                 />
-                <label className="form-check-label" htmlFor="selectedRowsOnly">
+                <label className="form-check-label" for="selectedRowsOnly">
                     Selected rows only
                 </label>
             </div>

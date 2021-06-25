@@ -21,3 +21,17 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+.idea/
+/back_room/import_test_dimension_model_files/venv
+/back_room/import_test_dimension_model_files/.idea
+/back_room/dimension_model_system/dimension_model_center/image/stage
+.DS_STORE
+.vscode/settings.json
+/back_room/dimension_model_system/.bsp
+/back_room/dimension_model_system/test_dimension_model_generator/image/stage
+/zhd-dev.iml
+
+deploy/builds
+node_modules
+build
